@@ -1,0 +1,30 @@
+[project]
+name = "cortex-engine"
+version = "0.1.0"
+description = "LIDA-style cognitive cycle with an LLM for perception/deliberation and mem0 long-term memory"
+authors = [{ name = "Joshua Heidorn", email = "heidornj@icloud.com" }]
+requires-python = ">=3.11,<3.14"
+dependencies = [
+    "mem0ai (>=2.2,<3.0)",
+    "anthropic",
+    "sentence-transformers",
+    "numpy",
+    "torch",
+    "python-dotenv (>=1.2.4,<2.0.0)",
+]
+
+[tool.poetry]
+package-mode = false
+
+# Embeddings run on CPU only; use the CPU torch wheels instead of the multi-GB CUDA build.
+[[tool.poetry.source]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+priority = "explicit"
+
+[tool.poetry.dependencies]
+torch = { source = "pytorch-cpu" }
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,11 @@
+__pycache__/
+.venv/
+lida_qdrant/
+scheme_stats.json
+.env
+lida_history.db
+lida_goals.json
+lida_goals_log.jsonl
+lida_mem0/
+workspace/
+lida_intention.json
